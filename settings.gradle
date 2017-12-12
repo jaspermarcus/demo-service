@@ -1,0 +1,18 @@
+rootProject.name='demo-service'
+
+pluginManagement.repositories {
+  maven {
+    url 'https://repo-dev.appian.com/nexus/content/groups/public'
+    credentials {
+      username appianRepoDevUsername
+      password new String(appianRepoDevPassword.decodeBase64())
+    }
+  }
+  gradlePluginPortal()
+}
+
+buildCache {
+  local {
+    enabled = true
+  }
+}

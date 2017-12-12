@@ -1,0 +1,36 @@
+group = 'com.appian'
+description = 'Demo Service'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+  maven {
+    url 'https://repo-dev.appian.com/nexus/content/groups/public'
+    credentials {
+      username appianRepoDevUsername
+      password new String(appianRepoDevPassword.decodeBase64())
+    }
+  }
+}
+
+ext {
+  dlVersion = '0.56.0'
+  tikaVersion = '1.14'
+  vertxVersion = '3.5.0'
+}
+
+dependencies {
+  compile "com.google.guava:guava:18.0"
+  compile "commons-io:commons-io:2.5"
+  compile "commons-lang:commons-lang:2.6"
+  compile "io.vertx:vertx-core:$vertxVersion"
+  compile "io.vertx:vertx-web:$vertxVersion"
+  compile "log4j:log4j:1.2.17"
+  compile "org.apache.httpcomponents:httpcore:4.2.5"
+
+}
+
+mainClassName = 'com.appian.demo.ServiceMain'
+
+applicationDefaultJvmArgs = ["-Duser.timezone=GMT", "-Dmy.home=MY_HOME_VALUE"]

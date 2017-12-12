@@ -1,0 +1,2 @@
+# ignore the gradle distribution. The wrapper downloads it the first time it is invoked.
+dists
